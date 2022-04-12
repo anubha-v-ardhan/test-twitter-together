@@ -19,4 +19,4 @@ jobs:
         label_marker_end: '<<'
     - name: Show parsed data JSON
       run: |
-        echo "${{ steps.parse.outputs.payload }}"
+        echo "${{ steps.parse.outputs.payload }}" >> ./tweets/"${{ github.event.issue.number }}".tweet
