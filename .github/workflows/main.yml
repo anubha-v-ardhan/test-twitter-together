@@ -18,13 +18,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: parsing from body of the issue
-        uses: actions/checkout@v2
-        id: parseissue
-        with:
-          starting-parse-symbol: '<!--::-->'
-          file-name-extension: 'tweet'
-          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
