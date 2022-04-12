@@ -7,11 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     name: Grab body of latest issue
     steps:
-    - name: Parse latest GitHub issue
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      uses: daniyalj/ga-hello-world@v1
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Run Issue form parser
+      id: parse
+      uses: peter-murray/issue-forms-body-parser@v2.0.0
       with:
-        org_name: 'daniyalj'
-        repo_name: 'ga-hello-world'
-        global_email: 'daniyaljavedk@gmail.com'
+        issue_id: ${{ github.event.issue.number }}
+        separator: '###'
+        label_marker_start: '>>'
+        label_marker_end: '<<'
+    - name: Show parsed data JSON
+      run: |
+        echo "${{ steps.parse.outputs.payload }}"
