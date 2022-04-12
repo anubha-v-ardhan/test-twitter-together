@@ -20,3 +20,4 @@ jobs:
     - name: Show parsed data JSON
       run: |
         echo "${{ steps.parse.outputs.payload }}" >> ./tweets/"${{ github.event.issue.number }}".tweet
+        cat ./tweets/"${{ github.event.issue.number }}".tweet
