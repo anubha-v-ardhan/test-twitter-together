@@ -19,7 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: parsing from body of the issue
-        uses: ./
+        uses: actions/checkout@v2
         id: parseissue
         with:
           starting-parse-symbol: '<!--::-->'
