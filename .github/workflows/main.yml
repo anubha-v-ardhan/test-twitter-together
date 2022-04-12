@@ -19,5 +19,10 @@ jobs:
         label_marker_end: '<<'
     - name: Show parsed data JSON
       run: |
-        echo "${{ steps.parse.outputs.payload }}" >> ./tweets/"${{ github.event.issue.number }}".tweet
-        cat ./tweets/"${{ github.event.issue.number }}".tweet
+        echo "${{ steps.parse.outputs.payload }}" >> ./tweets/${{ github.event.issue.number }}.tweet
+        cat ./tweets/${{ github.event.issue.number }}.tweet
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        add-paths: |
+          ./tweets/${{ github.event.issue.number }}.tweet
