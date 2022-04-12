@@ -3,12 +3,15 @@ name: Issue Forms Body Parser
 on: issues
 
 jobs:
-  process:
+  issue_parser:
     runs-on: ubuntu-latest
+    name: Grab body of latest issue
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: Issue Forms Body Parser
-        id: parse
-        uses: zentered/issue-forms-body-parser@v2.0.0
-      - run: echo "${{ JSON.stringify(steps.parse.outputs.data) }}"
+    - name: Parse latest GitHub issue
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: daniyalj/ga-hello-world@v1
+      with:
+        org_name: 'daniyalj'
+        repo_name: 'ga-hello-world'
+        global_email: 'daniyaljavedk@gmail.com'
