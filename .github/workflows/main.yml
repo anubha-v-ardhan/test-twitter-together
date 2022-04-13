@@ -11,5 +11,5 @@ jobs:
       uses: actions/checkout@v2
     - name: Run Issue form parser
       id: parse
-      uses: zentered/issue-forms-body-parser@v2.0.0
+      uses: zentered/issue-forms-body-parser@v2
     - run: echo "${{ steps.parse.outputs.data }}"
