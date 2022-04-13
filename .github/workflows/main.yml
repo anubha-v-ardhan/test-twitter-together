@@ -16,5 +16,6 @@ jobs:
         template-path: .github/ISSUE_TEMPLATE/new-tweet-request.yaml
     - run: |
         echo '${{ steps.issue-parser.outputs.jsonString }}' > bug-details.json
-        jq '.tweet' bug-details.json == string
+        string=$(jq '.tweet' bug-details.json)
         echo ${string:1:-1}
+        
