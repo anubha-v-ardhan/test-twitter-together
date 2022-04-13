@@ -24,7 +24,6 @@ jobs:
       with:
         add-paths: |
           tweets/*.tweet
-        token: ${{ secrets.TOKEN_GITHUB }}
         commit-message: Add new tweet file via automation
         title: 'add: new tweet file via automation'
         body: |
@@ -32,4 +31,5 @@ jobs:
           Fixes: #${{ steps.issue-parser.outputs.issueNumber}}
         branch: add/${{ steps.issue-parser.outputs.issueNumber}}
         base: main
+        delete-branch: true
         
