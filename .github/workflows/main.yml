@@ -10,6 +10,10 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
     - name: Run Issue form parser
-      id: parse
-      uses: zentered/issue-forms-body-parser@v1
-    - run: echo "${{ steps.parse.outputs.data }}"
+      uses: stefanbuck/github-issue-parser@v2
+      id: issue-parser
+      with:
+        template-path: .github/ISSUE_TEMPLATE/new-tweet-request.yaml
+    - run: |
+        echo '${{ steps.issue-parser.outputs.jsonString }}' > bug-details.json
+        cat bug-details.json
