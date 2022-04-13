@@ -17,12 +17,14 @@ jobs:
     - run: |
         echo '${{ steps.issue-parser.outputs.jsonString }}' > bug-details.json
         string=$(jq '.tweet' bug-details.json)
-        echo ${string:1:-1} >> ./tweets/${{ steps.issue-parser.outputs.issueNumber}}.tweet
-        cat ./tweets/${{ steps.issue-parser.outputs.issueNumber}}.tweet
+        echo ${string:1:-1} >> tweets/${{ steps.issue-parser.outputs.issueNumber}}.tweet
+        cat tweets/${{ steps.issue-parser.outputs.issueNumber}}.tweet
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        add-paths: |
+          tweets/*.tweet
+        token: ${{ secrets.TOKEN_GITHUB }}
         commit-message: Add new tweet file via automation
         title: 'add: new tweet file via automation'
         body: |
