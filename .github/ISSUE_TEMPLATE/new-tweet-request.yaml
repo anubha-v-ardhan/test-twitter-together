@@ -2,8 +2,8 @@ name: New Tweet
 description: File a tweet
 title: "[Tweet]: "
 body:
-  - type: input
-    id: contact
+  - type: textarea
+    id: tweet
     attributes:
       label: >>Tweet<<
       description: What do you want to tweet?
