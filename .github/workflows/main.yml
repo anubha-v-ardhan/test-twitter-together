@@ -32,6 +32,4 @@ jobs:
           Fixes: #${{ steps.issue-parser.outputs.issueNumber}}
         branch: add/${{ steps.issue-parser.outputs.issueNumber}}
         base: main
-        signoff: true
-        delete-branch: true
         
