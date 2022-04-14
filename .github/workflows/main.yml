@@ -3,14 +3,6 @@ name: Issue Forms Body Parser
 on:
   issues:
     types: ['opened']
-  issue_comment:
-    types: ['created']
-  push:
-    branches:
-      - "*"
-  pull_request:
-    branches:
-      - main
 
 jobs:
   issue_parser:
