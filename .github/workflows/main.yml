@@ -1,15 +1,15 @@
-name: Issue Forms Body Parser
+name: Parse issue and create PR
 
 on:
   issues:
     types: ['opened']
 
 jobs:
-  issue_parser:
+  parse-issue-and-create-pr:
     runs-on: ubuntu-latest
-    name: Grab body of latest issue
+    name: Parse issue and commit into tweets folder
     steps:
-    - name: checkout
+    - name: Checkout
       uses: actions/checkout@v2
     - name: Run Issue form parser
       uses: stefanbuck/github-issue-parser@v2
@@ -27,12 +27,11 @@ jobs:
         add-paths: |
           tweets/${{ github.event.issue.number }}.tweet
         commit-message: Add new tweet file via automation
-        title: 'add: new tweet file via automation'
+        title: 'New tweet request from ${{ github.event.issue.author }}'
         body: |
           This PR is auto-generated.
           Fixes: #${{ github.event.issue.number }}
         branch: add/${{ github.event.issue.number }}
         base: main
         signoff: true
-        delete-branch: true
-        
+        delete-branch: true     
