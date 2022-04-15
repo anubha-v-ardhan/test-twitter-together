@@ -4,11 +4,11 @@ title: "[Tweet] <title>"
 body:
   - type: markdown
     attributes:
-      label: aa
       value: 
         Thank You for creating a new tweet request and it will be merged soon and the tweet will go out soon
   - type: checkboxes
     attributes:
+      label: aa
       options: 
       - label: Remember to follow the 280 characters limit to tweet 
         required: true
