@@ -14,8 +14,8 @@ body:
     validations:
       required: true
   - type: checkboxes
-    label: caution
     attributes:
+      label: caution
       options: 
       - label: This tweet follows the 280 characters limit 
         required: true
