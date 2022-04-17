@@ -3,6 +3,7 @@ description: Create a new tweet request
 title: "[Tweet] <title>"
 body:
   - type: markdown
+    label: xyz
     attributes:
       value: 
         Thank you for creating a new tweet request. A PR will be automatically generated on submitting this issue. Please wait for the PR to be approved for your tweet to go out.
