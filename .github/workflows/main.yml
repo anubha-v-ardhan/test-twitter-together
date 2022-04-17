@@ -16,7 +16,7 @@ jobs:
       uses: stefanbuck/github-issue-parser@v2
       id: issue-parser
       with:
-        template-path: .github/ISSUE_TEMPLATE/new-tweet-request.yml
+        template-path: .github/ISSUE_TEMPLATE/new-tweet-request.yaml
     # parse tweet.json and echo the required data to .tweet file
     - run: |
         echo '${{ steps.issue-parser.outputs.jsonString }}' > tweet.json
