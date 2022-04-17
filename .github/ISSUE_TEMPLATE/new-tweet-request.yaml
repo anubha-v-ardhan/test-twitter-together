@@ -15,10 +15,10 @@ body:
       required: true
   - type: checkboxes
     attributes:
-      label: caution
+      label: Caution
       options: 
-      - label: This tweet follows the 280 characters limit 
-        required: true
+       - label: This tweet follows the 280 characters limit 
+         required: true
   - type: textarea
     attributes:
       label: Why you want to tweet this?
