@@ -1,4 +1,4 @@
-ame: Label issues
+name: Label issues
 on:
   issues:
     types:
