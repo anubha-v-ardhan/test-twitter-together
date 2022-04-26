@@ -1,0 +1,19 @@
+name: 📄 Documentation issue
+description: Found an issue in the documentation? Use this.
+title: '[DOCS] <description>'
+labels: ["notes","triage/accepted","triage/awaiting"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A brief description of the issue
+    validations:
+      required: true
+  - type: textarea
+    id: extrainfo
+    attributes:
+      label: Additional information
+      description: Is there anything else we should know about this issue?
+    validations:
+      required: false
